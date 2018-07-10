@@ -1,0 +1,29 @@
+<h2>Add a future pet!</h2>
+<form action="/pet_success" method="post">
+  <label for="pet-name">Pet Name</label>
+  <input id="pet-name" class="form-control" type="text" name="pet-name">
+  <label for="gender">Gender</label>
+  <input id="gender" class="form-control" type="text" name="gender">
+  <label for="species">Species</label>
+  <input id="species" class="form-control" type="text" name="species">
+  <label for="breed">Breed</label>
+  <input id="breed" class="form-control" type="text" name="breed">
+  <input type="hidden" name="admittance_date" value="<%= Date.today %>">
+  <button type="submit">Submit</button>
+</form>
+
+
+<h2>Add a potential adopter</h2>
+<form action="/adopter_success" method="post">
+  <label for="adopter-name">Adopters Name</label>
+  <input id="adopter-name" class="form-control" type="text" name="adopter-name">
+  <label for="phone">Phone</label>
+  <input id="phone" class="form-control" type="text" name="phone">
+  <label for="species_pref">Species Preference</label>
+  <input id="species_pref" class="form-control" type="text" name="species_pref">
+  <label for="breed_pref">Breed Preference</label>
+  <input id="breed_pref" class="form-control" type="text" name="breed_pref">
+  <button type="submit">Submit</button>
+</form>
+
+<p>Back to <a href="/">previous page</a></p>

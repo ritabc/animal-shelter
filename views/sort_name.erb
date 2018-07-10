@@ -1,0 +1,10 @@
+<h1>Here are the animals sorted by name</h1>
+<% @name_sorted.each do |animal| %>
+  <p>Name: <%= animal.name %>
+     Gender: <%= animal.gender %>
+     Species: <%= animal.species %>
+     Breed: <%= animal.breed %>
+   </p>
+   <% end %>
+
+<a href="/sort_time"><span class="btn btn-success">Sort Chronologically</span></a>

@@ -34,7 +34,7 @@ class Animal
   end
 
   def self.sort(sort_by)
-    animals_to_sort = DB.exec("SELECT * FROM animals ORDER BY #{sort_by}")
+    animals_to_sort = DB.exec("SELECT * FROM animals ORDER BY #{sort_by};")
     sorted_animals = []
     animals_to_sort.each do |animal|
       id = animal.fetch("id").to_i
