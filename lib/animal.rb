@@ -9,7 +9,7 @@ class Animal
     @admittance_date = attr.fetch(:admittance_date).to_s
     @species = attr.fetch(:species)
     @breed = attr.fetch(:breed)
-    @customer_id = attr.fetch(:customer_id) || "null"
+    @customer_id = "null"
   end
 
   def self.all()
@@ -29,7 +29,8 @@ class Animal
   end
 
   def save
-    DB.exec("INSERT INTO animals (name, gender, admittance_date, species, breed, customer_id) VALUES ('#{@name}', '#{@gender}', '#{@admittance_date}', '#{@species}', '#{@breed}', #{@customer_id});")
+    result = DB.exec("INSERT INTO animals (name, gender, admittance_date, species, breed, customer_id) VALUES ('#{@name}', '#{@gender}', '#{@admittance_date}', '#{@species}', '#{@breed}', #{@customer_id}) RETURNING id;")
+    @id = result.first.fetch("id").to_i
   end
 
   def self.sort(sort_by)
@@ -47,6 +48,17 @@ class Animal
     end
     sorted_animals
   end
+
+  def adopted(name, phone)
+    grab_customer = DB.exec("SELECT id FROM customers WHERE name = '#{name}' and phone = '#{phone}';")
+    customer_id = []
+    grab_customer.each do |customer|
+      id = customer.fetch("id").to_i
+      customer_id.push(id)
+    end
+    @customer_id = customer_id[0]
+  end
+
 
   def ==(another_animal)
     self.name.==(another_animal.name).&(self.gender.==(another_animal.gender)).&(self.admittance_date.==(another_animal.admittance_date)).&(self.species.==(another_animal.species)).&(self.breed.==(another_animal.breed))

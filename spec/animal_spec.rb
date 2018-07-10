@@ -1,5 +1,6 @@
 require 'rspec'
 require 'animal'
+require 'customer'
 require 'pry'
 require 'pg'
 require 'spec_helper'
@@ -37,6 +38,17 @@ describe(Animal) do
       animal_test.save()
       animal_test2.save()
       expect(Animal.sort(:name)).to(eq([animal_test2, animal_test]))
+    end
+  end
+  describe ('#adopted') do
+    it('will grab id of a customer and add it to the adopted pets instance') do
+      customer_test = Customer.new({:id => nil, :name => 'Tedd', :phone => '919-555-1234', :species_pref => 'Dog', :breed_pref => 'Shitzu'})
+      customer_test.save()
+      customers = Customer.all[0]
+      animal_test = Animal.new({:id => nil, :name => 'Leo', :gender => "Female", :admittance_date => Date.new(2018, 7, 10), :species => "Dog", :breed => "Shitzu", :customer_id => nil})
+      animal_test.save()
+      animal_test.adopted(customer_test.name, customer_test.phone)
+      expect(animal_test.customer_id).to(eq(customer_test.id))
     end
   end
 end
