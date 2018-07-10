@@ -1,10 +1,9 @@
-<h1>Here are the animals sorted by date admitted</h1>
-<% @time_sorted.each do |animal| %>
+<h1>Here are the animals sorted by breed</h1>
+<% @breed_sorted.each do |animal| %>
   <p>Name: <%= animal.name %>
      Gender: <%= animal.gender %>
      Species: <%= animal.species %>
      Breed: <%= animal.breed %>
-     Date Admitted: <%= animal.admittance_date %>
    </p>
    <% end %>
 

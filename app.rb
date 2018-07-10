@@ -47,3 +47,8 @@ get('/sort_time') do
   @time_sorted = Animal.sort('admittance_date')
   erb(:sort_time)
 end
+
+get('/sort_breed') do
+  @breed_sorted = Animal.sort('breed')
+  erb(:sort_breed)
+end
