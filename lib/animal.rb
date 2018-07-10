@@ -29,7 +29,6 @@ class Animal
   end
 
   def save
-    binding.pry
     DB.exec("INSERT INTO animals (name, gender, admittance_date, species, breed, customer_id) VALUES ('#{@name}', '#{@gender}', '#{@admittance_date}', '#{@species}', '#{@breed}', #{@customer_id});")
   end
 
