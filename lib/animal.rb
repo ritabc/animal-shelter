@@ -49,17 +49,6 @@ class Animal
     sorted_animals
   end
 
-  def adopted(name, phone)
-    grab_customer = DB.exec("SELECT id FROM customers WHERE name = '#{name}' and phone = '#{phone}';")
-    customer_id = []
-    grab_customer.each do |customer|
-      id = customer.fetch("id").to_i
-      customer_id.push(id)
-    end
-    @customer_id = customer_id[0]
-  end
-
-
   def ==(another_animal)
     self.name.==(another_animal.name).&(self.gender.==(another_animal.gender)).&(self.admittance_date.==(another_animal.admittance_date)).&(self.species.==(another_animal.species)).&(self.breed.==(another_animal.breed))
   end
