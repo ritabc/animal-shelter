@@ -20,6 +20,8 @@
 
 ## Database Schema
 
+![screen shot 2018-07-10 at 9 20 35 am](https://user-images.githubusercontent.com/11031915/42523477-ab8d3fe2-8422-11e8-9ddb-0866abae1841.png)
+
 ## User Stories
 * As a shelter worker, I want to add animals to the system. An animal will have a name, gender, date of admittance, type (ex. cat/dog) and breed.
 * As a shelter worker, I want to add a person as a customer into the system. A customer should have a name, phone, animal type preference, and a breed preference.
