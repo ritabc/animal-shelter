@@ -1,4 +1,4 @@
-# Word Definer
+# Animal Shelter
 
 #### Epicodus: Ruby Course: Tuesday, July 6th, 2018
 
